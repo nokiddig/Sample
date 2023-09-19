@@ -1,5 +1,5 @@
+import 'package:dynamic_ui/sample_gridview.dart';
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -18,17 +18,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class SampleGridView extends StatefulWidget {
-  const SampleGridView({super.key});
-
-  @override
-  State<SampleGridView> createState() => _SampleGridViewState();
-}
-
-class _SampleGridViewState extends State<SampleGridView> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
 

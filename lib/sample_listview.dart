@@ -1,4 +1,4 @@
-import 'package:dynamic_ui/student.dart';
+import 'package:dynamic_ui/model/student.dart';
 import 'package:flutter/material.dart';
 
 class SampleListView extends StatefulWidget {
