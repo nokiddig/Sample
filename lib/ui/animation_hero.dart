@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_widget_test/model/user.dart';
+import 'package:sample_widget_test/ui/user_detail.dart';
 import 'package:sample_widget_test/viewmodel/user_viewmodel.dart';
 
 class HeroAnimationSample extends StatelessWidget {
@@ -27,13 +28,23 @@ class HeroAnimationSample extends StatelessWidget {
             itemCount: snapshot.data?.length, // Số lượng item
             itemBuilder: (BuildContext context, int index) {
               MyUser user = snapshot.data![index];
-              return Container(
-                child: Center(
-                  child: Image.network(user.avatarPath!),
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: Colors.amber
+              return GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (ctx) => UserDetail(user: user),
+                    ),
+                  );
+                },
+                child: Hero(
+                  tag: 'user_${user.username}',
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: Colors.amber
+                    ),
+                    child: Image.network(user.avatarPath!),
+                  ),
                 ),
               );
             },
