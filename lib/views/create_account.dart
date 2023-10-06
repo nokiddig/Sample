@@ -50,7 +50,7 @@ class CreateAccount extends StatelessWidget {
     String username = _usernameController.text;
     String pass = _passController.text;
     String avatar = _avatarController.text;
-    Account account = Account(username,pass,avatar);
+    Account account = Account("",username,pass,avatar);
     AccountViewModel viewModel = AccountViewModel();
     _usernameController.text = _passController.text = _avatarController.text = "";
     viewModel.addAccount(account);
