@@ -43,4 +43,12 @@ class AccountViewModel{
   Future<void> delete(String id) async {
     await _firestore.collection(MyConstains.COLLECTION_USER).doc(id).delete();
   }
+
+  Future<void> edit(Account account) async {
+    await _firestore.collection(MyConstains.COLLECTION_USER).doc(account.id)
+        .set({
+      'username': account.username,
+      'avatar': account.avatarPath,
+    });
+  }
 }

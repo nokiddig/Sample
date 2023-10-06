@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sample_firestore/constain/constains.dart';
 import 'package:sample_firestore/models/account.dart';
 import 'package:sample_firestore/viewmodel/account_viewmodel.dart';
+import 'package:sample_firestore/views/edit_account.dart';
 
 import 'create_account.dart';
 
@@ -54,11 +55,15 @@ class SampleFirestore extends StatelessWidget {
                                       _showDialogConfirm(context, account.id);
                                     },
                                     icon: const Icon(Icons.delete)),
-                                IconButton(
-                                    onPressed: (){
-
-                                    },
-                                    icon: const Icon(Icons.edit)),
+                                Hero(
+                                  tag: "edit-${account.id}",
+                                  child: IconButton(
+                                      onPressed: (){
+                                        Route route = MaterialPageRoute(builder: (context) => EditAccount(account));
+                                        Navigator.push(context, route);
+                                      },
+                                      icon: const Icon(Icons.edit)),
+                                ),
                               ],
                             )
                           ],
